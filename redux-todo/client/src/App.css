@@ -1,0 +1,15 @@
+.app {
+  display: grid;
+  place-items: center;
+  margin-top: 70px;
+}
+
+.app-container{
+  display: flex;
+}
+
+@media only screen and (max-width: 1000px) {
+  .app-container{
+    display:grid;
+  }
+}

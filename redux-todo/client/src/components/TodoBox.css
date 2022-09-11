@@ -1,0 +1,47 @@
+.todo-box-container {
+    margin-left: 12px;
+    margin-left: 12px;
+    padding: 10px 10px 1px 10px;
+    width: 350px;
+    background-color: #5655C6;
+    border-radius: 9px;
+}
+
+.box-header {
+    display: flex;
+    justify-content: space-between;
+    vertical-align: center;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.todo-add {
+    
+    text-align: center;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.add-btn {
+    background-color: #cbcbcb;
+    padding: 1px 10px 5px 10px;
+    font-size: x-large;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.add-btn:hover {
+    background-color: #bebebe;
+}
+
+.action{
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 400px) {
+    .todo-box-container {
+        width: 300px;
+    }
+}

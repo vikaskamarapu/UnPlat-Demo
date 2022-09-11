@@ -1,0 +1,15 @@
+.todo-item{
+    background-color: white;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    background-color: #FBFBFB;
+}
+
+.todo-title{
+    margin-bottom: 8px;
+}
+.todo-time{
+    font-size: small;
+    color: #888888;
+}
