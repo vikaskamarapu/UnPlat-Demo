@@ -5,20 +5,41 @@ import './TodoBox.css'
 import { useState } from 'react'
 import Input from './Input'
 import { useDispatch } from 'react-redux';
-import { deleteTask } from '../features/todoSlice';
+import { useDeleteTodoMutation } from '../services/todoservice'
+import { useDeleteInProgMutation } from '../services/InProgressService'
+import { useDeleteDoneMutation } from '../services/DoneService'
 
 
 const TodoBox = ({ title, currentList }) => {
 
     const dispatch = useDispatch()
     const [modal, setModal] = useState(false);
+
+    const [deleteTodo] = useDeleteTodoMutation();
+    const [deleteInProg] = useDeleteInProgMutation();
+    const [deleteDone] = useDeleteDoneMutation();
+
+    const handleDeleteTodo = async (todoId) => {
+        await deleteTodo(todoId)
+    }
+    const handleDeleteInProg = async (inprogId) => {
+        await deleteInProg(inprogId)
+    }
+    const handleDeleteDone = async (doneId) => {
+        await deleteDone(doneId)
+    }
+
     const toggle = () => {
         setModal(!modal)
     }
     const handleDelete = () => {
-        dispatch(deleteTask({
-            title: title
-        }))
+        if (title === "ToDo List") {
+            handleDeleteTodo(currentList[0].id);
+        } else if (title === "In Progress") {
+            handleDeleteInProg(currentList[0].id);
+        } else {
+            handleDeleteDone(currentList[0].id);
+        }
     }
     return (
         <div className='todo-box'>

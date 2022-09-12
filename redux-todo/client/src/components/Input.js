@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import './Input.css';
-import { useDispatch } from 'react-redux';
-import { saveDone, saveInProg, saveTodo } from '../features/todoSlice';
+import { useAddTodoMutation } from '../services/todoservice';
+import { useAddInProgMutation } from '../services/InProgressService';
+import { useAddDoneMutation } from '../services/DoneService';
 
 const Input = ({ modal, toggle, title }) => {
     const [task, setTask] = useState('');
@@ -11,7 +12,10 @@ const Input = ({ modal, toggle, title }) => {
 
     const [fm, setFM] = useState(true);
     const [tm, setTM] = useState(false);
-    const dispatch = useDispatch()
+
+    const [addTodo] = useAddTodoMutation();
+    const [addInProg] = useAddInProgMutation();
+    const [addDone] = useAddDoneMutation();
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -25,6 +29,16 @@ const Input = ({ modal, toggle, title }) => {
         }
     }
 
+    const handleAddTodo = async (todo) => {
+        await addTodo(todo)
+    }
+    const handleAddInProg = async (inprog) => {
+        await addInProg(inprog)
+    }
+    const handleAddDone = async (done) => {
+        await addDone(done)
+    }
+
     const handleSave = (e) => {
         e.preventDefault()
         toggle();
@@ -32,26 +46,23 @@ const Input = ({ modal, toggle, title }) => {
         let fTime = fromTime + (fm ? " AM" : " PM");
         let tTime = toTime + (fm ? " AM" : " PM");
         if (title === "ToDo List") {
-            dispatch(saveTodo({
-                task:task,
-                fTime:fTime,
-                tTime:tTime,
-                id: Date.now()
-            }))
+            handleAddTodo({
+                task: task,
+                fTime: fTime,
+                tTime: tTime
+            });
         } else if (title === "In Progress") {
-            dispatch(saveInProg({
+            handleAddInProg({
                 task: task,
                 fTime: fTime,
-                tTime: tTime,
-                id: Date.now()
-            }))
+                tTime: tTime
+            });
         } else {
-            dispatch(saveDone({
+            handleAddDone({
                 task: task,
                 fTime: fTime,
-                tTime: tTime,
-                id: Date.now()
-            }))
+                tTime: tTime
+            });
         }
     }
 

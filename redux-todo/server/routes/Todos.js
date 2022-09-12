@@ -13,4 +13,10 @@ router.post("/", async (req, res) => {
     res.json(todo);
 });
 
+router.delete("/:id", async (req, res) => {
+    let id = req.params.id;
+    await Todos.destroy({ where: { id: id } });
+    res.json("Todo deleted");
+});
+
 module.exports = router
