@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "1234",
-    "database": "tododb",
-    "host": "127.0.0.1",
+    "username": "sql6519049",
+    "password": "FBiYtZFYtl",
+    "database": "sql6519049",
+    "host": "sql6.freesqldatabase.com",
     "dialect": "mysql"
   },
   "test": {
