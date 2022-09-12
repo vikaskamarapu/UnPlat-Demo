@@ -15,6 +15,10 @@
     margin-bottom: 20px;
 }
 
+.box-title{
+    color: #FBFBFB;
+}
+
 .todo-add {
     
     text-align: center;
@@ -24,7 +28,7 @@
 }
 
 .add-btn {
-    background-color: #cbcbcb;
+    background-color: #888888;
     padding: 1px 10px 5px 10px;
     font-size: x-large;
     border-radius: 5px;
@@ -33,7 +37,7 @@
 }
 
 .add-btn:hover {
-    background-color: #bebebe;
+    background-color: #777777;
 }
 
 .action{

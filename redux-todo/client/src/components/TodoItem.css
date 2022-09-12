@@ -1,15 +1,31 @@
 .todo-item{
     background-color: white;
-    padding: 10px;
     margin-bottom: 10px;
     border-radius: 4px;
     background-color: #FBFBFB;
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-item-container{
+    padding: 10px;
 }
 
 .todo-title{
     margin-bottom: 8px;
 }
+
 .todo-time{
     font-size: small;
     color: #888888;
+}
+
+.edit-action{
+    padding-right: 10px;
+    cursor: pointer;
+    display: none;
+}
+
+.todo-item:hover .edit-action{
+    display: inline;
 }

@@ -45,7 +45,7 @@ const TodoBox = ({ title, currentList }) => {
         <div className='todo-box'>
             <div className='todo-box-container'>
                 <div className='box-header'>
-                    <h5>{title}</h5>
+                    <h5 className='box-title'>{title}</h5>
                     <img src={DelIcon} height="14" width="14" className='action' onClick={handleDelete} />
                 </div>
                 {
